@@ -3,6 +3,9 @@ package in.ashokit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+
+import in.ashokit.service.ReportService;
+
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
@@ -16,6 +19,9 @@ public class Application {
 		for (String beanName : beanDefinitionNames) {
 			System.out.println(beanName);
 		}
+		
+		ReportService reportService = context.getBean(ReportService.class);
+		reportService.generateData();
 	}
 
 }
