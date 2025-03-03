@@ -1,6 +1,7 @@
 package in.ashokit;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,10 +45,37 @@ public class SpringDataJpaApplication {
 		System.out.println("Count :: "+playerRepository.count());
 		System.out.println();
 		
-		System.out.println("Find 1 :: "+playerRepository.existsById(1));
+		System.out.println("Find Id 1 :: "+playerRepository.existsById(1));
 		System.out.println();
 		
-		System.out.println("Get All Player HQL : "+playerRepository.getAllPlayerHql());
+		System.out.println("Find By Player Name :: "+playerRepository.findByPlayerName("palyer"));
+		System.out.println("Find Player player1 and player2 :: "+playerRepository.findByPlayerNameIn(Arrays.asList("palyer1","palyer2")));
+		System.out.println("Find Player player1 and 23 :: "+playerRepository.findByPlayerNameAndPlayerAge("palyer1", "23"));
+		System.out.println("Find Player player2 and hyderabad2 :: "+playerRepository.findByPlayerNameAndLocation("palyer2", "hyderabad2"));
+		System.out.println("Find Player player1 and 24 :: "+playerRepository.findByPlayerNameOrPlayerAge("palyer1", "24"));
+		System.out.println("Find Player player2 and hyderabad2 :: "+playerRepository.findByPlayerNameOrLocation("palyer2", "hyderabad3"));
+		System.out.println();
+			
+		System.out.println("Find By Player PlayerAge :: "+playerRepository.findByPlayerAge("23"));
+		System.out.println("Find By Player PlayerAge In 23, 24 :: "+playerRepository.findByPlayerAgeIn(Arrays.asList("23","24")));
+		System.out.println("Find By Player PlayerAge Between 23, 24 :: "+playerRepository.findByPlayerAgeBetween("23","24"));
+		System.out.println("Find By Player PlayerAge Before 23 :: "+playerRepository.findByPlayerAgeBefore("23"));
+		System.out.println("Find By Player PlayerAge After 23 :: "+playerRepository.findByPlayerAgeAfter("23"));
+		System.out.println("Find By Player PlayerAge player1 Or PlayerLocation hyderabad2 :: "+playerRepository.findByPlayerAgeOrLocation("23","hyderabad2"));
+		System.out.println("Find By Player PlayerAge player1 And PlayerLocation hyderabad1 :: "+playerRepository.findByPlayerAgeOrLocation("23","hyderabad"));
+		
+		System.out.println();
+		
+		System.out.println("Find By Location :: "+playerRepository.findByLocation("hyderabad"));
+		System.out.println("Find By Location Hyderabad :: "+playerRepository.findByLocationAllIgnoreCase("Hyderabad"));
+		System.out.println("Find By Location Hyderabad :: "+playerRepository.findByLocationAllIgnoringCase("Hyderabad"));
+		System.out.println("Find By Location Containing :: "+playerRepository.findByLocationContaining("hyderabad2"));
+		System.out.println("Find By Location Contains :: "+playerRepository.findByLocationContains("hyderabad2"));
+		System.out.println("Find By Location Ending With bad :: "+playerRepository.findByLocationEndingWith("bad"));
+		System.out.println("Find By Location  :: "+playerRepository.findByLocationContainsOrderByPlayerAge("bad"));
+		System.out.println();
+    
+    System.out.println("Get All Player HQL : "+playerRepository.getAllPlayerHql());
 		System.out.println();
 		
 		System.out.println("Get All Player SQL : "+playerRepository.getAllPlayerSql());
@@ -64,7 +92,6 @@ public class SpringDataJpaApplication {
 		
 		System.out.println("Get All Player By Age And Location SQL : "+playerRepository.getAllPlayerByAgeAndLocationSql( "23", "hyderabad"));
 		System.out.println();
-				
 		
 	}
 	
