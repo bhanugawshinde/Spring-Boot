@@ -8,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import in.ashokit.dao.PlayerRepository;
+import in.ashokit.dao.ProductRepository;
 import in.ashokit.entity.Player;
+import in.ashokit.entity.Product;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
@@ -17,6 +19,7 @@ public class SpringDataJpaApplication {
 		ConfigurableApplicationContext context = SpringApplication.run(SpringDataJpaApplication.class, args);
 		
 		PlayerRepository playerRepository = context.getBean(PlayerRepository.class);
+		ProductRepository productRepository = context.getBean(ProductRepository.class);
 		
 		/*
 		 * Player player = new Player(1, "palyer", "23", "hyderabad");
@@ -74,6 +77,28 @@ public class SpringDataJpaApplication {
 		System.out.println("Find By Location Ending With bad :: "+playerRepository.findByLocationEndingWith("bad"));
 		System.out.println("Find By Location  :: "+playerRepository.findByLocationContainsOrderByPlayerAge("bad"));
 		System.out.println();
+		
+		//save Product
+		/*
+		 * Product p1 = new Product("p1",2.1); 
+		 * Product p2 = new Product("p2",2.2);
+		 * Product p3 = new Product("p3",2.3); 
+		 * Product p4 = new Product("p4",2.4);
+		 * productRepository.saveAll(Arrays.asList(p1,p2,p3,p4));
+		 * 
+		 * System.out.println("All Product saved ...");
+		 */
+		
+		//update Product
+		/*
+		 * Product p1 = new Product(1,"p3",2.3); 
+		 * Product p2 = new Product(2,"p4",2.4); 
+		productRepository.saveAll(Arrays.asList(p1,p2));
+		*/
+		List<Product> products = productRepository.findAll();
+		
+		products.forEach(System.out::println);
+		
 		
 	}
 	
