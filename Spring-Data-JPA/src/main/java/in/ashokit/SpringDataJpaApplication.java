@@ -77,6 +77,24 @@ public class SpringDataJpaApplication {
 		System.out.println("Find By Location Ending With bad :: "+playerRepository.findByLocationEndingWith("bad"));
 		System.out.println("Find By Location  :: "+playerRepository.findByLocationContainsOrderByPlayerAge("bad"));
 		System.out.println();
+    
+    System.out.println("Get All Player HQL : "+playerRepository.getAllPlayerHql());
+		System.out.println();
+		
+		System.out.println("Get All Player SQL : "+playerRepository.getAllPlayerSql());
+		System.out.println();
+		
+		System.out.println("Get All Player By Location HQL : "+playerRepository.getAllPlayerByLocationHql("hyderabad"));
+		System.out.println();
+		
+		System.out.println("Get All Player By Location SQL : "+playerRepository.getAllPlayerByLocationSql("hyderabad"));
+		System.out.println();
+		
+		System.out.println("Get All Player By Age And Location HQL : "+playerRepository.getAllPlayerByAgeAndLocationHql("23", "hyderabad"));
+		System.out.println();
+		
+		System.out.println("Get All Player By Age And Location SQL : "+playerRepository.getAllPlayerByAgeAndLocationSql( "23", "hyderabad"));
+		System.out.println();
 		
 		//save Product
 		/*
