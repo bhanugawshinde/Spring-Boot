@@ -1,11 +1,17 @@
 package in.ashokit;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import in.ashokit.dao.PlayerRepository;
 import in.ashokit.dao.ProductRepository;
@@ -97,11 +103,10 @@ public class SpringDataJpaApplication {
 		System.out.println();
 		
 		//save Product
+		
 		/*
-		 * Product p1 = new Product("p1",2.1); 
-		 * Product p2 = new Product("p2",2.2);
-		 * Product p3 = new Product("p3",2.3); 
-		 * Product p4 = new Product("p4",2.4);
+		 * Product p1 = new Product("p13",5.1); Product p2 = new Product("p14",3.2);
+		 * Product p3 = new Product("p15",5.3); Product p4 = new Product("p16",6.4);
 		 * productRepository.saveAll(Arrays.asList(p1,p2,p3,p4));
 		 * 
 		 * System.out.println("All Product saved ...");
@@ -117,6 +122,27 @@ public class SpringDataJpaApplication {
 		
 		products.forEach(System.out::println);
 		
+		List<Product> sortByPrice = productRepository.findAll(Sort.by("price").descending());
+		sortByPrice.forEach(System.out::println);
+		
+		List<Product> sortByPriceAndId = productRepository.findAll(Sort.by("price","id").descending());
+		sortByPriceAndId.forEach(System.out::println);
+		
+		int pageNo = 2;
+		int pageSize=4;
+		
+		PageRequest pageRequest = PageRequest.of(pageNo, pageSize);
+		Page<Product> pageData = productRepository.findAll(pageRequest);
+		System.out.println("get Page Size : "+pageData.getSize());
+		System.out.println("Get Total Pages: "+pageData.getTotalPages());
+		List<Product> content = pageData.getContent();
+		content.forEach(System.out::println);
+		
+		Product p = new Product();
+		p.setPrice(2.3);
+		Example<Product> example = Example.of(p);
+		List<Product> procductByEx = productRepository.findAll(example);
+		procductByEx.forEach(System.out::println);
 		
 	}
 	
