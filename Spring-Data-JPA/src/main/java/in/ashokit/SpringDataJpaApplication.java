@@ -1,9 +1,8 @@
 package in.ashokit;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +14,10 @@ import org.springframework.data.domain.Sort;
 
 import in.ashokit.dao.PlayerRepository;
 import in.ashokit.dao.ProductRepository;
+import in.ashokit.entity.Account;
 import in.ashokit.entity.Player;
 import in.ashokit.entity.Product;
+import in.ashokit.service.AccountService;
 
 @SpringBootApplication
 public class SpringDataJpaApplication {
@@ -26,6 +27,7 @@ public class SpringDataJpaApplication {
 		
 		PlayerRepository playerRepository = context.getBean(PlayerRepository.class);
 		ProductRepository productRepository = context.getBean(ProductRepository.class);
+		AccountService accountService = context.getBean(AccountService.class);
 		
 		/*
 		 * Player player = new Player(1, "palyer", "23", "hyderabad");
@@ -144,6 +146,25 @@ public class SpringDataJpaApplication {
 		List<Product> procductByEx = productRepository.findAll(example);
 		procductByEx.forEach(System.out::println);
 		
+		System.out.println("-- Composite Primary Key -- ");
+		accountService.saveAccount("bhanu", "saving", "Navi", 3333.3);
+		accountService.saveAccount("Aatmaj", "current", "Hyd", 3233.3);
+		accountService.saveAccount("Pavan", "salary", "Mumbai", 3433.3);
+		accountService.saveAccount("kunal", "prf", "Bareli", 3353.3);
+		accountService.saveAccount("Jyuti", "saving", "Mp", 3333.3);
+		accountService.saveAccount("gopi", "saving", "Kn", 4533.3);
+		
+		Optional<Account> accOptional = accountService.getDataUsingPk(2, "bhanu", "saving");
+		if(accOptional.isPresent()) {
+			Account account = accOptional.get();
+			System.out.println(account);
+		}
+		//accountService.deleteDataByPk(1, "bhanu", "saving");
+		
+		System.out.println("Accounts : ");
+		List<Account> accounts = accountService.getAllData();
+		accounts.forEach(System.out::println);
+	
 	}
 	
 	private static void printRecord(Player p) {
