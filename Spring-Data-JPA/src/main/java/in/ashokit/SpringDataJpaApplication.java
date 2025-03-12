@@ -146,14 +146,15 @@ public class SpringDataJpaApplication {
 		List<Product> procductByEx = productRepository.findAll(example);
 		procductByEx.forEach(System.out::println);
 		
-		System.out.println("-- Composite Primary Key -- ");
-		accountService.saveAccount("bhanu", "saving", "Navi", 3333.3);
-		accountService.saveAccount("Aatmaj", "current", "Hyd", 3233.3);
-		accountService.saveAccount("Pavan", "salary", "Mumbai", 3433.3);
-		accountService.saveAccount("kunal", "prf", "Bareli", 3353.3);
-		accountService.saveAccount("Jyuti", "saving", "Mp", 3333.3);
-		accountService.saveAccount("gopi", "saving", "Kn", 4533.3);
-		
+		/*
+		 * System.out.println("-- Composite Primary Key -- ");
+		 * accountService.saveAccount("bhanu", "saving", "Navi", 3333.3);
+		 * accountService.saveAccount("Aatmaj", "current", "Hyd", 3233.3);
+		 * accountService.saveAccount("Pavan", "salary", "Mumbai", 3433.3);
+		 * accountService.saveAccount("kunal", "prf", "Bareli", 3353.3);
+		 * accountService.saveAccount("Jyuti", "saving", "Mp", 3333.3);
+		 * accountService.saveAccount("gopi", "saving", "Kn", 4533.3);
+		 */
 		Optional<Account> accOptional = accountService.getDataUsingPk(2, "bhanu", "saving");
 		if(accOptional.isPresent()) {
 			Account account = accOptional.get();
@@ -164,6 +165,12 @@ public class SpringDataJpaApplication {
 		System.out.println("Accounts : ");
 		List<Account> accounts = accountService.getAllData();
 		accounts.forEach(System.out::println);
+		
+		try {
+			accountService.transferAmmount(2, "bhanu", "saving", 3, "Aatmaj", "current", 500.0);
+		} catch (Exception e) {
+			System.out.println("not Able to tansfer ammout"+e);
+		}
 	
 	}
 	
