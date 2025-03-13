@@ -171,7 +171,27 @@ public class SpringDataJpaApplication {
 		} catch (Exception e) {
 			System.out.println("not Able to tansfer ammout"+e);
 		}
-	
+
+		
+		  employeeService.saveEmployee("Bhanu", "Khargone",
+				  LocalDate.of(1999, 10, 19), 1600000.0);
+		  employeeService.saveEmployee("Kunal", "Mumbai",
+				  LocalDate.of(2001, 7, 23), 1036000.0);
+		  employeeService.saveEmployee("Aatmaj",
+				  "Pune", LocalDate.of(1999, 9, 11), 1230000.0);
+		 
+		
+		employeeService.getAllEmployee();
+		
+		/*
+		 * employeeService.
+		 * saveImage("C:\\Users\\Dell\\Pictures\\Screenshots\\Screenshot (4).png",
+		 * "TCS1"); employeeService.
+		 * saveImage("C:\\Users\\Dell\\Pictures\\Screenshots\\Screenshot (3).png",
+		 * "TCS2"); employeeService.
+		 * saveImage("C:\\Users\\Dell\\Pictures\\Screenshots\\Screenshot (42).png",
+		 * "TCS3");
+		 */
 	}
 	
 	private static void printRecord(Player p) {
