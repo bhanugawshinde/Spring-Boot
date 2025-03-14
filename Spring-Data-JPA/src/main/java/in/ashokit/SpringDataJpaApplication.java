@@ -1,6 +1,5 @@
 package in.ashokit;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -189,13 +188,12 @@ public class SpringDataJpaApplication {
 		}
 
 		
-		  employeeService.saveEmployee("Bhanu", "Khargone",
-				  LocalDate.of(1999, 10, 19), 1600000.0);
-		  employeeService.saveEmployee("Kunal", "Mumbai",
-				  LocalDate.of(2001, 7, 23), 1036000.0);
-		  employeeService.saveEmployee("Aatmaj",
-				  "Pune", LocalDate.of(1999, 9, 11), 1230000.0);
-		 
+		/*
+		 * employeeService.saveEmployee("Bhanu", "Khargone", LocalDate.of(1999, 10, 19),
+		 * 1600000.0); employeeService.saveEmployee("Kunal", "Mumbai",
+		 * LocalDate.of(2001, 7, 23), 1036000.0); employeeService.saveEmployee("Aatmaj",
+		 * "Pune", LocalDate.of(1999, 9, 11), 1230000.0);
+		 */
 		
 		employeeService.getAllEmployee();
 		
@@ -207,12 +205,6 @@ public class SpringDataJpaApplication {
 		 * "TCS2"); employeeService.
 		 * saveImage("C:\\Users\\Dell\\Pictures\\Screenshots\\Screenshot (42).png",
 		 * "TCS3");
-		 */
-		/*
-		 * employeeService.saveEmployee("Bhanu", "Khargone", LocalDate.of(1999, 10, 19),
-		 * 1600000.0); employeeService.saveEmployee("Kunal", "Mumbai",
-		 * LocalDate.of(2001, 7, 23), 1036000.0); employeeService.saveEmployee("Aatmaj",
-		 * "Pune", LocalDate.of(1999, 9, 11), 1230000.0);
 		 */
 		
 		employeeService.getAllEmployee();
