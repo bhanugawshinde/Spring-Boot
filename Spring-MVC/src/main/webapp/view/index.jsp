@@ -12,5 +12,6 @@
 	<a href="/welcome">Welcome Massage</a> <br>
 	<a href="/greet">Greet Massage</a> <br>
 	<a href="/wish">Wish Massage</a> <br>
+	<a href="/books">Get All Books</a> <br>
 </body>
 </html>
