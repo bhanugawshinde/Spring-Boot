@@ -23,14 +23,19 @@
 				<tr>
 					<td>Book Id : </td>
 					<td><form:input path="bookId"/></td>
+					<td><form:errors path="bookId" cssClass="error"/></td>
 				</tr>
 				<tr>
 					<td>Book Name : </td>
 					<td><form:input path="bookName"/></td>
+					<td><form:errors path="bookName" cssClass="error"/></td>
+					
 				</tr>
 				<tr>
 					<td>Book Price : </td>
 					<td><form:input path="bookPrice"/></td>
+					<td><form:errors path="bookPrice" cssClass="error"/></td>
+					
 				</tr>
 				<tr>
 					<td></td>

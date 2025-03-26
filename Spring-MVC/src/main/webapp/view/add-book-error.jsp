@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Success Book</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-
+<title>Error Book</title>
 </head>
 <body>
-<h1 class="success">${msg }</h1>
-<p>${book }</p>
+<h1 class="error">${msg }</h1>
 
 <a href="/">Home</a> <br>
 <a href="/books">Get All Books</a> <br>
