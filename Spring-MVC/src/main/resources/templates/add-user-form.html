@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+    <form th:action="@{/add-user}" th:object="${user}" method="POST">
+        <table>
+            <tr>
+                <td>User Id :</td>
+                <td><input type="text" th:field="*{userId}" /></td>
+                <td>
+                    <p th:errors="*{userId}" class="error" th:if="${#fields.hasErrors('userId')}"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>User Name :</td>
+                <td><input type="text" th:field="*{userName}" /></td>
+                <td>
+                    <p th:errors="*{userName}" class="error" th:if="${#fields.hasErrors('userName')}"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>User Age :</td>
+                <td><input type="text" th:field="*{userAge}" /></td>
+                <td>
+                    <p th:errors="*{userAge}" class="error" th:if="${#fields.hasErrors('userAge')}"></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Password :</td>
+                <td><input type="password" th:field="*{password}" /></td>
+                <td>
+                    <p th:errors="*{password}" class="error" th:if="${#fields.hasErrors('password')}"></p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Save" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
