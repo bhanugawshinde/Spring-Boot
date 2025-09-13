@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.back-button {
+	cursor: pointer;
+	width: 50px;
+	height: 40px;
+}
+
+.error{
+	color: red;
+}
+
+.success{
+	color: green;
+}
